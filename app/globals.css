@@ -31,3 +31,13 @@ body {
     text-wrap: balance;
   }
 }
+
+.black-background {
+  background-image: url("/black-background.jpg");
+  background-repeat: repeat;
+  background-size: 50%;
+}
+
+.scroller {
+  scrollbar-color: black rgba(0, 0, 0, 0.4);
+}
