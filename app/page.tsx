@@ -282,7 +282,7 @@ export default function Home() {
                   isFlipped={isFlipped[index]}
                   flipDirection="vertical"
                 >
-                  <Card className="border-none w-[340px] h-[260px] p-10 flex flex-col items-center gap-y-6">
+                  <Card className="border-none min-w-[340px] max-w-[340px] min-h-[260px] p-10 flex flex-col items-center gap-y-6">
                     <img
                       src={feature.icon}
                       alt={feature.frontLabel}
@@ -292,7 +292,7 @@ export default function Home() {
                       {feature.frontLabel}
                     </p>
                   </Card>
-                  <Card className="border-none w-[340px] h-[260px] p-10 flex items-center justify-center">
+                  <Card className="border-none max-w-[340px] min-h-[260px] p-10 flex items-center justify-center">
                     <p className="font-[200] text-xl text-center tracking-wide">
                       {feature.backLabel}
                     </p>
@@ -392,9 +392,9 @@ export default function Home() {
             {casinoFeatures.map((feature, index) => (
               <Card
                 key={index}
-                className="overflow-hidden relative w-[320px] h-[540px] border-none p-6 flex flex-col items-center gap-y-8 after:content-[''] after:absolute after:top-0 after:left-0 after:bg-gradient-to-t after:from-primary-100 after:via-transparent after:to-transparent after:h-full after:w-full after:z-0"
+                className="mx-auto overflow-hidden relative max-w-[320px] min-h-[540px] border-none p-6 flex flex-col items-center gap-y-8 after:content-[''] after:absolute after:top-0 after:left-0 after:bg-gradient-to-t after:from-primary-100 after:via-transparent after:to-transparent after:h-full after:w-full after:z-0"
               >
-                <img src={feature.img} className="z-10" />
+                <img src={feature.img} className="z-10 w-[300px]" />
                 <h2 className="font-semibold text-2xl text-center z-10">
                   {feature.title}
                 </h2>
