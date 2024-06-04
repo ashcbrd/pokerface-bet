@@ -612,18 +612,18 @@ export default function Home() {
               }}
               loop={true}
               modules={[Autoplay, Pagination, Navigation]}
-              className="w-full"
+              className="w-full !px-6"
               breakpoints={{
                 640: {
                   slidesPerView: 1,
                   spaceBetween: 0,
                 },
                 768: {
-                  slidesPerView: 4,
+                  slidesPerView: 3,
                   spaceBetween: 0,
                 },
                 1024: {
-                  slidesPerView: 4,
+                  slidesPerView: 3,
                   spaceBetween: 0,
                 },
               }}
@@ -633,7 +633,7 @@ export default function Home() {
                   <p className="font-semibold text-2xl px-6 py-2 rounded-full bg-primary-100 w-max absolute mx-auto right-0 left-0 z-[99]">
                     Phase {index + 1}
                   </p>
-                  <div className="mt-6 border-2 border-primary-100 rounded-3xl p-6 min-h-[400px] w-[340px] mx-auto relative flex flex-col justify-center">
+                  <div className="mt-6 border-2 border-primary-100 rounded-3xl p-6 min-h-[400px] w-[360px] mx-auto relative flex flex-col justify-center">
                     {item.phase && <p>{item.phase}</p>}
                     <div className="space-y-1 mt-6">
                       {item.items.map((rItem, index) => (
