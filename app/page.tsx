@@ -26,7 +26,20 @@ import { formatAmountDecimals, formatAmountCommas } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ReactCardFlip from "react-card-flip";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import {
+  Autoplay,
+  EffectCoverflow,
+  Navigation,
+  Pagination,
+} from "swiper/modules";
+import { roadmap } from "@/data/roadmap";
+import CustomNavigation from "@/components/custom-navigation";
 
 const countdownItems = [
   {
@@ -579,17 +592,62 @@ export default function Home() {
         </div>
 
         <div className="black-background py-20">
-          <div className="max-w-6xl mx-auto flex flex-col gap-y-10 items-center">
+          <div className="max-w-6xl mx-auto flex flex-col gap-y-10 items-center relative">
+            <h2 className="font-semibold text-primary-200 text-5xl">ROADMAP</h2>
             <Swiper
-              spaceBetween={50}
+              effect={"cards"}
+              grabCursor={true}
+              centeredSlides={true}
               slidesPerView={3}
-              className="flex w-full bg-blue-500 gap-10"
+              spaceBetween={10}
+              coverflowEffect={{
+                rotate: 0,
+                stretch: 0,
+                depth: 0,
+                modifier: 2,
+              }}
+              navigation={{
+                prevEl: ".custom-prev-button",
+                nextEl: ".custom-next-button",
+              }}
+              loop={true}
+              modules={[Autoplay, Pagination, Navigation]}
+              className="w-full"
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                  spaceBetween: 0,
+                },
+                768: {
+                  slidesPerView: 4,
+                  spaceBetween: 0,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 0,
+                },
+              }}
             >
-              <SwiperSlide className="bg-red-500">Slide 1</SwiperSlide>
-              <SwiperSlide className="bg-red-500">Slide 2</SwiperSlide>
-              <SwiperSlide className="bg-red-500">Slide 3</SwiperSlide>
-              <SwiperSlide className="bg-red-500">Slide 4</SwiperSlide>
+              {roadmap.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <p className="font-semibold text-2xl px-6 py-2 rounded-full bg-primary-100 w-max absolute mx-auto right-0 left-0 z-[99]">
+                    Phase {index + 1}
+                  </p>
+                  <div className="mt-6 border-2 border-primary-100 rounded-3xl p-6 min-h-[400px] w-[340px] mx-auto relative flex flex-col justify-center">
+                    {item.phase && <p>{item.phase}</p>}
+                    <div className="space-y-1 mt-6">
+                      {item.items.map((rItem, index) => (
+                        <p key={index}>• {rItem}</p>
+                      ))}
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
             </Swiper>
+            <div className="absolute flex w-full left-0 right-0 items-center m-auto top-0 bottom-0 justify-between z-[999] mt-20">
+              <CustomNavigation onClick={() => {}} direction="prev" />
+              <CustomNavigation onClick={() => {}} direction="next" />
+            </div>
           </div>
         </div>
 
