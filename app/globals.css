@@ -41,3 +41,9 @@ body {
 .scroller {
   scrollbar-color: black rgba(0, 0, 0, 0.4);
 }
+
+.footer-background {
+  background-image: url("/casino-set.jpg");
+  background-size: 100%;
+  background-position: 50% 50%;
+}
