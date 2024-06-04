@@ -93,7 +93,11 @@ export default function Home() {
             invitation to be part of a transformative journey in the world of
             online betting
           </p>
-          <video src="" className="w-full h-[500px] border" />
+          <video controls>
+            <source src="/Pokerface-Video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
           <Link
             href="https://whitepaper.pokerface.bet/poker-face-white-paper"
             className="mx-auto"
@@ -343,7 +347,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="black-background py-20">
+        <div id="tokenomics" className="black-background py-20">
           <div className="max-w-6xl mx-auto flex items-center justify-between gap-x-10">
             <div className="space-y-10">
               <h2 className="text-primary-200 font-semibold text-5xl">
