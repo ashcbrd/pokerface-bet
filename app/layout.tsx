@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import CasinoBackground from "@/components/casino-background";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,10 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="relative">
-      <body className="z-10 relative">
-        {children}
-        <CasinoBackground />
-      </body>
+      <body className="z-10 relative">{children}</body>
     </html>
   );
 }

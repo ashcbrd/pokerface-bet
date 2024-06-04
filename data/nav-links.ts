@@ -1,7 +1,7 @@
 export const navLinks = [
   {
     label: "HO TO BUY",
-    url: "how-to-buy",
+    url: "/how-to-buy",
     unique: false,
   },
   {
@@ -11,7 +11,7 @@ export const navLinks = [
   },
   {
     label: "CASINO DEMO LIVE",
-    url: "",
+    url: "https://pokerfacecasino.bet/web/index",
     unique: true,
   },
 ];
