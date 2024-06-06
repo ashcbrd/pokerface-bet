@@ -94,9 +94,9 @@ export default function Home() {
         <Navbar />
 
         {/* HERO SECTION */}
-        <div className="flex flex-col gap-y-10 max-w-6xl mx-auto py-20">
+        <div className="flex flex-col gap-y-10 max-w-6xl mx-auto py-20 px-8 laptop:px-0">
           <Logo />
-          <p className="font-[200] tracking-wide text-center text-lg">
+          <p className="font-[200] tracking-wide text-center text-base tablet:text-lg">
             Introducing the $FACE ecosystem that integrates eGaming, casino
             elements, and cryptocurrency, this project promises to create a
             diverse and inclusive ecosystem that caters to a wide range of
@@ -106,7 +106,10 @@ export default function Home() {
             invitation to be part of a transformative journey in the world of
             online betting
           </p>
-          <video controls>
+          <video
+            controls
+            className="w-full tablet:w-[400px] mx-auto laptop:w-full"
+          >
             <source src="/Pokerface-Video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -119,7 +122,7 @@ export default function Home() {
               WHITE PAPER
             </Button>
           </Link>
-          <div className="w-max space-y-1">
+          <div className="w-max space-y-1 mx-auto laptop:mx-0">
             <p>Audited & KYC | 100% Secure & Verified</p>
             <img
               src="/solidproof.png"
@@ -130,7 +133,7 @@ export default function Home() {
         </div>
 
         <div className="black-background py-20">
-          <div className="bg-dark-100 border-2 border-primary-200 rounded-lg w-[700px] mx-auto flex items-center justify-center py-10">
+          <div className="bg-dark-100 border-2 border-primary-200 rounded-lg w-max px-10 laptop:px-0 laptop:w-full max-w-[700px] mx-auto flex items-center justify-center py-10">
             <Card className="flex flex-col gap-y-2 items-center">
               <p>Stages: 1 / 8</p>
               <p className="font-semibold">BUY IN BEFORE PRICE INCREASES!</p>
@@ -216,60 +219,99 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="black-background py-20 flex flex-col gap-y-6 items-center">
+        <div className="black-background py-20 flex flex-col gap-y-6 items-center  px-8 laptop:px-0">
           <img src="/casino-screenshot.jpeg" className="mx-auto max-w-8xl" />
-          <p className="text-3xl">Visit Pokerface Casino</p>
+          <p className="text-2xl laptop:text-3xl font-[500]">
+            Visit Pokerface Casino
+          </p>
           <Button variant="primary" className="py-3 px-10">
             CLICK HERE
           </Button>
         </div>
 
         <div className="flex flex-col items-center pb-20 gap-y-6 black-background">
-          <h2 className="text-primary-200 text-5xl font-bold">
+          <h2 className="text-primary-200 text-4xl laptop:text-5xl font-bold">
             TOKEN SALE STAGE
           </h2>
-          <div className="scroller max-w-7xl w-full flex overflow-x-scroll gap-x-10 py-4">
-            {presaleTokens.map((token, index) => (
-              <TokenSaleCards key={index} {...token} />
+          <Swiper
+            effect={"cards"}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={3}
+            spaceBetween={10}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 0,
+              modifier: 2,
+            }}
+            navigation={{
+              prevEl: ".custom-prev-button",
+              nextEl: ".custom-next-button",
+            }}
+            loop={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="w-full !px-6"
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 0,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 0,
+              },
+            }}
+          >
+            {presaleTokens.map((item, index) => (
+              <SwiperSlide key={index}>
+                <TokenSaleCards key={index} {...item} />
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
 
-        <div className="black-background py-20">
-          <div className="max-w-6xl mx-auto flex gap-x-6 justify-between items-center">
+        <div className="black-background py-20 px-8 laptop:px-0">
+          <div className="max-w-6xl mx-auto flex flex-col gap-y-6 laptop:flex-row gap-x-6 justify-between items-center">
             <div className="space-y-6">
-              <h2 className="font-[200] tracking-wide text-xl">
+              <h2 className="font-[200] tracking-wide text-sm tablet:text-xl">
                 <span className="font-semibold">Mission:</span> To provide an
                 unparalleled online gaming experience fueled by blockchain
                 technology. We aim to break barriers, enhance transparency, and
                 redefine rewards within the gaming ecosystem.
               </h2>
-              <h2 className="font-[200] tracking-wide text-xl">
+              <h2 className="font-[200] tracking-wide text-sm tablet:text-xl">
                 <span className="font-semibold">Vision:</span> To become the
                 leading online casino brand, setting the standard for secure,
                 fair, and rewarding gaming experiences worldwide.
               </h2>
             </div>
-            <img src="/img-7.png" className="w-[560px]" />
+            <img src="/img-7.png" className="w-full laptop:w-[560px]" />
           </div>
         </div>
 
-        <div className="black-background py-20 relative after:content-[''] after:bg-gradient-to-t after:from-primary-200/60 after:via-transparent after:to-transparent after:h-full after:w-full after:absolute after:top-0 after:left-0">
-          <div className="z-10 relative max-w-6xl mx-auto flex items-center justify-between gap-x-6">
-            <img src="/img-6.png" className="w-[560px]" />
+        <div className="black-background py-20 relative after:content-[''] after:bg-gradient-to-t after:from-primary-200/60 after:via-transparent after:to-transparent after:h-full after:w-full after:absolute after:top-0 after:left-0 px-8 laptop:px-0">
+          <div className="z-10 relative max-w-6xl gap-y-8 mx-auto flex flex-col-reverse laptop:flex items-center justify-between gap-x-6">
+            <img src="/img-6.png" className="w-full laptop:w-[560px]" />
             <div className="space-y-10">
               <div className="flex items-start gap-x-2 h-max">
-                <div className="bg-primary-200 rounded-full h-14 w-14" />
-                <h2 className="text-5xl font-bold">THE $FACE TOKEN</h2>
+                <div className="bg-primary-200 rounded-full h-8 w-8 tablet:h-14 tablet:w-14" />
+                <h2 className="text-xl tablet:text-5xl font-bold">
+                  THE $FACE TOKEN
+                </h2>
               </div>
               <div className="space-y-6">
-                <h2 className="font-[200] tracking-wide text-xl">
+                <h2 className="font-[200] tracking-wide text-sm tablet:text-xl">
                   $FACE, short for “Pokerface ,” is a utility token meticulously
                   crafted to transform the landscape of online gambling. With
                   $FACE, players gain access to exclusive benefits and
                   privileges within our gaming ecosystem.
                 </h2>
-                <h2 className="font-[200] tracking-wide text-xl">
+                <h2 className="font-[200] tracking-wide text-sm tablet:text-xl">
                   Utility: $FACE serves as the primary currency for Peerto Peer
                   Game transactions within our ecosystem. From wagering on games
                   to redeeming rewards and bonuses, $FACE empowers users with
@@ -280,21 +322,20 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="black-background relative py-10 after:content-[''] after:bg-gradient-to-b after:from-primary-200/60 after:via-transparent after:to-transparent after:h-full after:w-full after:absolute after:top-0 after:left-0 ">
-          <div className="z-10 py-20 max-w-6xl mx-auto relative flex items-center gap-x-10 justify-between">
+        <div className="px-4 laptop:px-0 black-background relative py-10 after:content-[''] after:bg-gradient-to-b after:from-primary-200/60 after:via-transparent after:to-transparent after:h-full after:w-full after:absolute after:top-0 after:left-0 ">
+          <div className="z-10 py-20 max-w-6xl mx-auto relative flex flex-col laptop:flex-row gap-y-6 items-center gap-x-10 justify-between">
             <img
               src="/img-8.png"
               alt="tokens"
-              className="w-40 absolute top-0 left-10"
+              className="w-40 absolute top-0 left-10 hidden laptop:block"
             />
-            <h2 className="text-primary-200 text-6xl font-semibold leading-snug">
-              UNIQUE
-              <br />
+            <h2 className="text-primary-200 text-4xl laptop:text-5xl font-semibold leading-snug">
+              UNIQUE <br className="hidden laptop:block" />
               FEATURES
             </h2>
             <div
               onMouseOut={() => setIsFlipped([false])}
-              className="grid grid-cols-2 gap-4"
+              className="grid grid-cols-1 tablet:grid-cols-2 gap-4 w-full"
             >
               {uniqueFeatures.map((feature, index) => (
                 <div
@@ -307,13 +348,13 @@ export default function Home() {
                     isFlipped={isFlipped[index]}
                     flipDirection="vertical"
                   >
-                    <Card className="border-none min-w-[340px] max-w-[340px] min-h-[260px] p-10 flex flex-col items-center gap-y-6">
+                    <Card className="border-none tablet:min-w-[340px] min-w-full tablet:max-w-[340px] min-h-[260px] p-10 laptop:px-14 flex flex-col items-center gap-y-6 justify-center">
                       <img
                         src={feature.icon}
                         alt={feature.frontLabel}
                         className="w-20"
                       />
-                      <p className="text-primary-100 font-semibold text-2xl text-center">
+                      <p className="text-primary-100 font-semibold text-xl laptop:text-2xl text-center">
                         {feature.frontLabel}
                       </p>
                     </Card>
@@ -329,13 +370,17 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="black-background py-20">
-          <div className="max-w-6xl mx-auto flex items-center justify-between gap-x-10">
+        <div className="black-background py-20 px-8 laptop:px-0">
+          <div className="max-w-6xl mx-auto flex flex-col gap-y-10 laptop:flex-row items-center justify-between gap-x-10">
             <div className="flex flex-col items-center gap-y-6">
-              <h2 className="text-primary-200 font-semibold text-5xl">
+              <h2 className="text-primary-200 font-semibold text-4xl laptop:text-5xl">
                 HOW IT WORKS
               </h2>
-              <img src="/img-9.png" className="w-[360px]" alt="" />
+              <img
+                src="/img-9.png"
+                className="w-[90%] laptop:w-[360px]"
+                alt=""
+              />
             </div>
             <div className="flex h-full">
               <div className="flex flex-col items-center translate-x-[26px] z-0">
@@ -349,8 +394,12 @@ export default function Home() {
                     <div className="h-10 w-10 rounded-full bg-primary-200 border-4 border-zinc-500 mt-2" />
                     <div className="z-10 w-[600px] border-l-4 border-primary-200 rounded relative after:content-[''] after:absolute after:top-4 after:-left-2 after:h-4 after:w-4 after:bg-white after:rotate-45 after:border-l-4 after:border-b-4 after:border-primary-200">
                       <div className="w-full h-full bg-white text-black py-6 px-4 z-10 relative rounded-r">
-                        <h3 className="text-xl font-semibold">{item.title}</h3>
-                        <p className="font-[200] mt-2">{item.description}</p>
+                        <h3 className="text-base tablet:text-xl font-semibold">
+                          {item.title}
+                        </h3>
+                        <p className="font-[200] mt-2 text-sm tablet:text-base">
+                          {item.description}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -360,13 +409,18 @@ export default function Home() {
           </div>
         </div>
 
-        <div id="tokenomics" className="black-background py-20">
-          <div className="max-w-6xl mx-auto flex items-center justify-between gap-x-10">
-            <div className="space-y-10">
-              <h2 className="text-primary-200 font-semibold text-5xl">
+        <div
+          id="tokenomics"
+          className="black-background py-20 px-8 laptop:px-0"
+        >
+          <div className="max-w-6xl mx-auto flex flex-col laptop:flex-row gap-y-10 items-center justify-between gap-x-10">
+            <div className="gap-y-6 tablet:gap-y-10 flex flex-col items-center laptop:items-start">
+              <h2 className="text-primary-200 font-semibold text-4xl laptop:text-5xl">
                 TOKENOMICS
               </h2>
-              <h3 className="text-5xl font-semibold">1000,000,000$FACE</h3>
+              <h3 className="text-2xl tablet:text-4xl laptop:text-5xl font-semibold">
+                1000,000,000$FACE
+              </h3>
               <table className="w-full">
                 <thead className="bg-white text-black border">
                   <tr>
@@ -398,32 +452,35 @@ export default function Home() {
                 </tbody>
               </table>
             </div>
-            <img src="/chart-04.png" className="w-[500px]" />
+            <img src="/chart-04.png" className="laptop:w-[500px] w-[90%]" />
           </div>
         </div>
 
-        <div className="py-20 black-background">
+        <div className="py-20 black-background px-6 laptop:px-0">
           <div className="flex flex-col items-center max-w-6xl mx-auto gap-y-10">
-            <h2 className="font-semibold text-primary-200 text-5xl">
+            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl">
               THE POKERFACE PROJECT
             </h2>
-            <p className="text-xl text-center font-[200] max-w-3xl">
+            <p className="text-base tablet:text-lg laptop:text-xl text-center font-[200] max-w-3xl">
               Our online casino platform is more than just a place to play; it’s
               a gateway to an immersive and rewarding gaming experience. From
               classic casino games to innovative new titles, our platform offers
               something for every player.
             </p>
-            <div className="grid grid-cols-3 w-full">
+            <div className="grid grid-cols-1 tablet:grid-cols-3 w-full space-y-10 gap-10 tablet:space-y-0">
               {casinoFeatures.map((feature, index) => (
                 <Card
                   key={index}
-                  className="mx-auto overflow-hidden relative max-w-[320px] min-h-[540px] border-none p-6 flex flex-col items-center gap-y-8 after:content-[''] after:absolute after:top-0 after:left-0 after:bg-gradient-to-t after:from-primary-100 after:via-transparent after:to-transparent after:h-full after:w-full after:z-0"
+                  className="mx-auto overflow-hidden relative min-w-full tablet:w-[200px] laptop:w-[320px] max-w-[320px] min-h-[600px] laptop:min-h-[540px] border-none p-6 flex flex-col items-center gap-y-8 after:content-[''] after:absolute after:top-0 after:left-0 after:bg-gradient-to-t after:from-primary-100 after:via-transparent after:to-transparent after:h-full after:w-full after:z-0"
                 >
-                  <img src={feature.img} className="z-10 w-[300px]" />
-                  <h2 className="font-semibold text-2xl text-center z-10">
+                  <img
+                    src={feature.img}
+                    className="z-10 w-full tablet:w-[300px]"
+                  />
+                  <h2 className="font-semibold text-xl laptop:text-2xl text-center z-10">
                     {feature.title}
                   </h2>
-                  <p className="text-center font-[200] text-lg z-10">
+                  <p className="text-center font-[200] text-md laptop:text-lg z-10">
                     {feature.description}
                   </p>
                 </Card>
@@ -432,16 +489,25 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="black-background py-20">
+        <div className="black-background py-20 px-8 laptop:px-0">
           <div className="max-w-6xl mx-auto flex flex-col gap-y-10 items-center">
-            <h2 className="font-semibold text-primary-200 text-5xl">CASINO</h2>
+            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl">
+              CASINO
+            </h2>
             <div className="space-y-8 w-full">
               {sportsGamesFeature.map((feature, index) => (
-                <div key={index} className="h-[300px] relative flex">
-                  <img src={feature.img} alt={feature.title} className="" />
-                  <div className="bg-primary-200 px-4 flex flex-col justify-center gap-y-4">
-                    <h3 className="text-3xl font-semibold">{feature.title}</h3>
-                    <p className="text-lg font-[200]">{feature.description}</p>
+                <div
+                  key={index}
+                  className="h-max tablet:h-[200px] laptop:h-[300px] relative flex flex-col tablet:flex-row"
+                >
+                  <img src={feature.img} alt={feature.title} />
+                  <div className="bg-primary-200 px-4 flex flex-col items-center tablet:items-start justify-center py-8 tablet:py-0 rounded-b-3xl tablet:rounded-b-none">
+                    <h3 className="text-md tablet:text-xl laptop:text-3xl font-semibold">
+                      {feature.title}
+                    </h3>
+                    <p className="text-base tablet:text-md laptop:text-lg font-[200] text-center tablet:text-start mt-6 tablet:mt-0">
+                      {feature.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -451,7 +517,7 @@ export default function Home() {
 
         <div className="black-background py-20">
           <div className="max-w-6xl mx-auto flex flex-col gap-y-10 items-center">
-            <h2 className="font-semibold text-primary-200 text-5xl">
+            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl">
               ONLINE LOTTO GAME
             </h2>
             <div className="flex flex-wrap justify-center gap-10 relative">
@@ -465,34 +531,36 @@ export default function Home() {
                     alt={item.title}
                     className="w-16 absolute -top-6 -right-6"
                   />
-                  <h3 className="font-semibold text-primary-200 text-2xl">
+                  <h3 className="font-semibold text-primary-200 text-xl laptop:text-2xl">
                     {item.title}
                   </h3>
-                  <p className="font-[200] text-lg">{item.description}</p>
+                  <p className="font-[200] laptop:text-lg">
+                    {item.description}
+                  </p>
                 </div>
               ))}
               <img
                 src="/mobile-img.png"
                 alt="mobile image"
-                className="absolute -bottom-20 right-20 w-60"
+                className="absolute -bottom-20 right-20 w-60 hidden laptop:block"
               />
             </div>
           </div>
         </div>
 
         <div className="black-background  pt-40 pb-20">
-          <div className="max-w-6xl mx-auto flex flex-col items-center gap-y-6">
-            <h2 className="font-semibold text-primary-200 text-5xl">
+          <div className="max-w-6xl w-[80%] laptop:w-full mx-auto flex flex-col items-center gap-y-6">
+            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl">
               PEER TO PEER GAMING
             </h2>
-            <p className="font-[200] text-center text-xl max-w-3xl">
+            <p className="font-[200] text-center text-lg laptop:text-xl max-w-3xl">
               Engage in a thrilling peer-to-peer games with real time betting
               where players can challenge each other and win big!
             </p>
             <div className="flex w-full justify-evenly mt-8">
               {peerToPeerGaming.map((item, index) => (
                 <img
-                  className="w-32"
+                  className="w-16 tablet:w-20 laptop:w-32"
                   key={index}
                   src={item}
                   alt={`gaming image ${index + 1}`}
@@ -505,11 +573,14 @@ export default function Home() {
 
         <div className="black-background py-20">
           <div className="relative max-w-6xl mx-auto flex flex-col gap-y-10 items-center">
-            <img src="/img-10.png" className="w-60 absolute -top-28 right-20" />
-            <h2 className="font-semibold text-primary-200 text-5xl">
+            <img
+              src="/img-10.png"
+              className="w-32 laptop:w-60 absolute -top-28 right-20"
+            />
+            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl">
               ADVANTAGES
             </h2>
-            <div className="flex w-full justify-center mt-20">
+            <div className="hidden laptop:flex w-full justify-center mt-20">
               {advantages.map((advantage, index) => (
                 <div
                   key={index}
@@ -522,54 +593,98 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            <div className="laptop:hidden flex w-full justify-center mt-20 px-4">
+              <Swiper
+                effect={"cards"}
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={1}
+                coverflowEffect={{
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 0,
+                  modifier: 2,
+                }}
+                navigation={{
+                  prevEl: ".custom-prev-button",
+                  nextEl: ".custom-next-button",
+                }}
+                loop={true}
+                modules={[Autoplay, Pagination, Navigation]}
+                className="w-full !px-6"
+              >
+                {advantages.map((advantage, index) => (
+                  <SwiperSlide key={index}>
+                    <div
+                      key={index}
+                      className="space-y-2 w-full border-t-2 px-10 py-10 relative"
+                    >
+                      <div className="w-3 h-3 rounded-full bg-white absolute -top-2 left-4" />
+                      <img src={advantage.icon} className="w-20" />
+                      <h3 className="text-2xl font-semibold">
+                        {advantage.title}
+                      </h3>
+                      <p className="text-xl font-[200]">
+                        {advantage.description}
+                      </p>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+              <div className="absolute flex laptop:hidden w-full left-0 right-0 items-center m-auto top-0 bottom-0 justify-between z-[999] mt-60 px-10">
+                <CustomNavigation onClick={() => {}} direction="prev" />
+                <CustomNavigation onClick={() => {}} direction="next" />
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="black-background py-20 h-full">
-          <div className="max-w-6xl mx-auto flex h-max items-center gap-x-10 justify-evenly">
-            <h2 className="font-semibold text-primary-200 text-5xl leading-snug">
+          <div className="max-w-6xl mx-auto flex flex-col laptop:flex-row gap-y-10 h-max items-center gap-x-10 justify-evenly">
+            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl leading-snug">
               STAKING
-              <br />
+              <br className="hidden laptop:block" />
               REWARDS
             </h2>
-            <div className="flex flex-col items-center gap-y-6 h-[340px]">
-              <img src="/staking.svg" className="w-20" />
-              <div className="h-32 border w-0 border-dashed" />
-              <img src="/staking-2.svg" className="w-20" />
-            </div>
-            <div className="flex flex-col justify-between h-[340px]">
-              <div>
-                <h2 className="text-2xl font-semibold text-primary-200">
-                  Earn passive income
-                </h2>
-                <p className="text-xl font-[200] w-[500px] mt-2">
-                  When you stake your $FACE you earn USDT rewards profits from
-                  the Casino.
-                </p>
+            <div className="flex gap-x-10">
+              <div className="flex flex-col items-center gap-y-6 h-[340px]">
+                <img src="/staking.svg" className="w-20" />
+                <div className="h-32 border w-0 border-dashed" />
+                <img src="/staking-2.svg" className="w-20" />
               </div>
-              <div>
-                <h2 className="text-2xl font-semibold text-primary-200">
-                  Access rewards instantly
-                </h2>
-                <p className="text-xl font-[200] w-[500px] mt-2">
-                  You will immediately unlock rewards from staking that you can
-                  use in Pokerface, or save them for later!
-                </p>
+              <div className="flex flex-col justify-between h-[340px]">
+                <div>
+                  <h2 className="text-2xl font-semibold text-primary-200">
+                    Earn passive income
+                  </h2>
+                  <p className="text-xl font-[200] w-[500px] mt-2">
+                    When you stake your $FACE you earn USDT rewards profits from
+                    the Casino.
+                  </p>
+                </div>
+                <div>
+                  <h2 className="text-2xl font-semibold text-primary-200">
+                    Access rewards instantly
+                  </h2>
+                  <p className="text-xl font-[200] w-[500px] mt-2">
+                    You will immediately unlock rewards from staking that you
+                    can use in Pokerface, or save them for later!
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="black-background py-20">
-          <div className="max-w-6xl mx-auto flex items-center justify-evenly gap-x-10">
+        <div className="black-background py-20 px-4 laptop:px-0">
+          <div className="max-w-6xl mx-auto flex-col-reverse laptop:flex-col gap-y-4 flex items-center justify-evenly gap-x-10">
             <img src="/POKERFACE-graph.png" alt="graph" className="w-[500px]" />
-            <div>
-              <h2 className="font-semibold text-primary-200 text-5xl leading-snug">
-                MARKET
-                <br />
+            <div className="flex flex-col items-center laptop:items-start px-6 laptop:px-0">
+              <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl leading-snug">
+                MARKET <br className="hidden laptop:block" />
                 OPPORTUNITY
               </h2>
-              <p className="font-[200] text-xl w-[500px] mt-4">
+              <p className="font-[200] text-lg laptop:text-xl laptop:w-[500px] mt-4 text-center laptop:text-start">
                 The global online gambling market is experiencing exponential
                 growth, with projections reaching $127.3 billion by 2027
               </p>
@@ -581,9 +696,9 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="black-background py-20">
+        <div className="black-background py-20 px-10 laptop:px-0">
           <div className="max-w-6xl mx-auto flex flex-col gap-y-10 items-center">
-            <h2 className="font-semibold text-primary-200 text-5xl leading-snug text-center">
+            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl leading-snug text-center">
               HOW WE COMPARE TO THE <br />
               COMPETITION
             </h2>
@@ -593,7 +708,9 @@ export default function Home() {
 
         <div className="black-background py-20">
           <div className="max-w-6xl mx-auto flex flex-col gap-y-10 items-center relative">
-            <h2 className="font-semibold text-primary-200 text-5xl">ROADMAP</h2>
+            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl">
+              ROADMAP
+            </h2>
             <Swiper
               effect={"cards"}
               grabCursor={true}
@@ -619,7 +736,7 @@ export default function Home() {
                   spaceBetween: 0,
                 },
                 768: {
-                  slidesPerView: 3,
+                  slidesPerView: 2,
                   spaceBetween: 0,
                 },
                 1024: {
@@ -651,21 +768,21 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="black-background py-20">
+        <div className="black-background py-20 px-4 laptop:px-0">
           <div className="max-w-6xl mx-auto flex flex-col items-center gap-y-10">
-            <h2 className="font-semibold text-primary-200 text-5xl">
+            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl">
               INVESTMENT OPPORTUNITY
             </h2>
-            <div className="flex items-center justify-between gap-x-6">
+            <div className="flex flex-col tablet:flex-row gap-y-8 items-center justify-between gap-x-6">
               {investmentOpportunity.map((opportunity, index) => (
                 <GradientCard
                   key={index}
-                  className="min-w-[340px] max-w-[340px] min-h-[260px] space-y-4"
+                  className="laptop:min-w-[340px] w-full tablet:max-w-[260px] laptop:max-w-[340px] tablet:min-h-[260px] space-y-4"
                 >
-                  <h2 className="z-10 relative text-primary-200 text-2xl font-semibold">
+                  <h2 className="z-10 relative text-primary-200 text-lg laptop:text-2xl font-semibold">
                     {opportunity.title}
                   </h2>
-                  <p className="z-10 relative font-[200] text-xl">
+                  <p className="z-10 relative font-[200] text-md laptop:text-xl">
                     {opportunity.description}
                   </p>
                 </GradientCard>
@@ -674,19 +791,19 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="black-background py-20">
+        <div className="black-background py-20 px-4 laptop:px-0">
           <div className="max-w-6xl mx-auto flex flex-col items-center gap-y-10">
-            <h2 className="font-semibold text-primary-200 text-5xl text-center leading-snug">
+            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl text-center leading-snug">
               $FACE IS SET TO LAUNCH ON <br /> MULTIPLE EXCHANGES
             </h2>
-            <div className="flex items-center justify-between gap-x-6">
+            <div className="flex flex-col tablet:flex-row gap-y-8 items-center justify-between gap-x-6 w-full">
               {Array.from({ length: 3 }).map((_, index) => (
                 <GradientCard
                   key={index}
-                  className="min-w-[340px] max-w-[340px] min-h-[200px] flex flex-col space-y-4 items-center"
+                  className="laptop:min-w-[340px] min-w-[240px] w-full laptop:max-w-[340px] min-h-[200px] flex flex-col space-y-4 items-center"
                 >
                   <img src="/loading.svg" alt="loading" className="w-24" />
-                  <p className="z-10 relative text-primary-200 text-2xl font-semibold">
+                  <p className="z-10 relative text-primary-200 text-xl laptop:text-2xl font-semibold">
                     Coming Soon
                   </p>
                 </GradientCard>
@@ -695,15 +812,15 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="black-background py-20">
+        <div className="black-background py-20 px-4 laptop:px-0">
           <div className="max-w-6xl mx-auto flex flex-col items-center gap-y-20">
-            <h2 className="font-semibold text-primary-200 text-5xl text-center">
+            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl text-center">
               POWERED BY
             </h2>
-            <div className="grid grid-cols-4 gap-20 w-full">
+            <div className="grid grid-cols-1 tablet:grid-cols-4 gap-20 w-full">
               {Array.from({ length: 16 }).map((_, index) => (
                 <img
-                  className="h-10 w-40 object-contain m-auto"
+                  className="h-10 w-24 laptop:w-40 object-contain m-auto"
                   key={index}
                   src={`/powered-${index + 1}.${
                     index === 13 || index === 15

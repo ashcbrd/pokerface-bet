@@ -17,7 +17,7 @@ const Button = ({
   const buttonVariants = (variant?: ButtonVariants) => {
     switch (variant) {
       case "primary":
-        return "bg-primary-100 text-white transition-all";
+        return "bg-primary-100 text-white transition-all text";
       case "secondary":
         return "bg-primary-200 text-white transition-all";
       case "outline":

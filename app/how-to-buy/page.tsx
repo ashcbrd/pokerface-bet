@@ -1,9 +1,12 @@
-import Card from "@/components/card";
+"use client";
+
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { howToBuy } from "@/data/how-to-buy";
+import { useRouter } from "next/navigation";
 
 export default function HowToBuyPage() {
+  const router = useRouter();
   return (
     <div className="black-background">
       <Navbar />
@@ -22,15 +25,26 @@ export default function HowToBuyPage() {
         </p>
         <div className="w-full space-y-10">
           {howToBuy.map((item, index) => (
-            <Card
+            <div
               key={index}
-              className="border border-primary-200 bg-white/10 !p-10 !w-full space-y-4"
+              onClick={() => {
+                if (index === 0) {
+                  router.push("http://presale.pokerface.bet/");
+                }
+              }}
+              className={`rounded-3xl border border-primary-200 bg-white/10 !p-10 !w-full space-y-4 ${
+                index === 0 && "cursor-pointer"
+              }`}
             >
               <h2 className="text-primary-200 font-semibold text-2xl">
                 Step {index + 1}: {item.title}
               </h2>
-              <p className="font-[200] text-xl">{item.description}</p>
-            </Card>
+              {item.description.map((dItem, index) => (
+                <p key={index} className="font-[200] text-xl">
+                  {dItem}
+                </p>
+              ))}
+            </div>
           ))}
         </div>
       </div>
