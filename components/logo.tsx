@@ -9,11 +9,11 @@ const sizeVariant = (variant?: string) => {
     case "md":
       return "max-w-[320px]";
     case "lg":
-      return "max-w-[400px]";
+      return "max-w-[340px] laptop:max-w-[400px]";
     case "xl":
       return "max-w-[500px]";
     default:
-      return "max-w-[400px]";
+      return "max-w-[340px] laptop:max-w-[400px]";
   }
 };
 

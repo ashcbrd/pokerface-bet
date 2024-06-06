@@ -7,6 +7,11 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      tablet: "768px",
+      laptop: "1024px",
+      desktop: "1280px",
+    },
     extend: {
       colors: {
         primary: {

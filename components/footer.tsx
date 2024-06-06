@@ -3,9 +3,9 @@ import Logo from "./logo";
 
 const Footer = () => {
   return (
-    <footer className="relative py-10 footer-background border-t after:content-[''] after:absolute after:bg-black/80 after:top-0 after:left-0 after:w-full after:h-full after:z-0">
-      <div className="flex relative z-10 max-w-6xl mx-auto justify-between items-center">
-        <div className="w-max">
+    <footer className="px-6 laptop:px-0 relative py-10 footer-background border-t after:content-[''] after:absolute after:bg-black/80 after:top-0 after:left-0 after:w-full after:h-full after:z-0">
+      <div className="flex flex-col tablet:flex-row gap-y-10 relative z-10 max-w-6xl mx-auto justify-between items-center">
+        <div className="w-max flex flex-col items-center tablet:items-start gap-y-8">
           <Logo />
           <ul className="space-y-4">
             <li className="font-semibold text-lg flex items-center gap-x-2 cursor-pointer">
@@ -20,8 +20,10 @@ const Footer = () => {
           </ul>
         </div>
         <div className="space-y-4 w-[400px]">
-          <h5 className="font-semibold text-primary-200 text-3xl">Community</h5>
-          <p className="font-[200] text-xl">
+          <h5 className="font-semibold text-primary-200 text-xl laptop:text-3xl text-center tablet:text-start">
+            Community
+          </h5>
+          <p className="font-[200] text-md laptop:text-xl text-center tablet:text-start">
             For more information please follow our social medias below.
           </p>
           <div />
