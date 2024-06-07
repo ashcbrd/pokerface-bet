@@ -3,7 +3,7 @@ import Logo from "./logo";
 
 const Footer = () => {
   return (
-    <footer className="px-6 laptop:px-0 relative py-10 footer-background border-t after:content-[''] after:absolute after:bg-black/80 after:top-0 after:left-0 after:w-full after:h-full after:z-0">
+    <footer className="!px-20 laptop:px-0 relative py-10 footer-background border-t after:content-[''] after:absolute after:bg-black/80 after:top-0 after:left-0 after:w-full after:h-full after:z-0">
       <div className="flex flex-col tablet:flex-row gap-y-10 relative z-10 max-w-6xl mx-auto justify-between items-center">
         <div className="w-max flex flex-col items-center tablet:items-start gap-y-8">
           <Logo />
@@ -27,17 +27,17 @@ const Footer = () => {
             For more information please follow our social medias below.
           </p>
           <div />
-          <div className="flex items-center gap-x-4">
+          <div className="flex items-center gap-x-4 justify-evenly tablet:justify-start">
             {Array.from({ length: 5 }).map((_, index) => (
               <img
                 key={index}
-                className="w-12"
+                className="w-8 tablet:w-12"
                 src={`/social-${index + 1}.svg`}
                 alt=""
               />
             ))}
           </div>
-          <p className="font-[200]">
+          <p className="text-sm tablet:text-base font-[200]">
             © Copyright 2024. PokerFace. All Rights Reserved
           </p>
         </div>

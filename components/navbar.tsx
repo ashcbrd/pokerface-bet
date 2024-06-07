@@ -11,8 +11,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   return (
-    <nav className="justify-between w-full max-w-6xl relative mx-auto h-20 flex items-center tablet:justify-end bg-transparent space-x-14 laptop:space-x-0 pr-6 laptop:pr-0">
-      <ul className="flex items-center gap-x-10 h-full w-max">
+    <nav className="z-[9999] justify-between w-full max-w-6xl relative mx-auto h-20 flex items-center tablet:justify-end bg-transparent gap-x-14 px-6 laptop:px-0 ">
+      <ul className="flex items-center tablet:gap-x-10 h-full w-max ">
         {navLinks.map((link, index) => {
           const isActive = link.url === pathname;
 
@@ -35,7 +35,7 @@ const Navbar = () => {
                 {link.unique ? (
                   <Button
                     variant="primary"
-                    className="text-xs tablet:text-sm py-3 px-8 hover:bg-[#b2511c] font-semibold"
+                    className="text-xs tablet:text-sm py-3 px-8 hover:bg-[#b2511c] font-semibold w-max"
                   >
                     {link.label}
                   </Button>
@@ -57,7 +57,7 @@ const Navbar = () => {
       <div
         className={`laptop:hidden w-full ${
           isOpen ? "h-20" : "h-0"
-        } bg-white absolute top-0 translate-y-20 flex items-center justify-center overflow-hidden transition-all`}
+        } bg-white absolute top-0 left-0 translate-y-20 flex items-center justify-center overflow-hidden transition-all`}
       >
         <div className="w-full h-full flex flex-col">
           <a

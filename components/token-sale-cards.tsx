@@ -12,7 +12,7 @@ interface IPresaleTokens {
 
 const TokenSaleCards = (props: IPresaleTokens) => {
   return (
-    <Card className="pt-12 pb-6 px-6 flex flex-col gap-y-6 items-center italic min-w-[400px]">
+    <Card className="pt-12 pb-6 px-6 flex flex-col gap-y-6 items-center italic w-[300px] tablet:min-w-[400px]">
       <h3 className="font-bold text-primary-200 text-2xl">
         PRESALE PHASE {props.phase}
       </h3>
