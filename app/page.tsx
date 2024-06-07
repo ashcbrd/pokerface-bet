@@ -450,7 +450,7 @@ export default function Home() {
         >
           <div className="max-w-6xl mx-auto flex flex-col laptop:flex-row gap-y-10 items-center justify-between gap-x-10">
             <div className="gap-y-6 tablet:gap-y-10 flex flex-col items-center laptop:items-start">
-              <h2 className="text-primary-200 font-semibold text-4xl laptop:text-5xl">
+              <h2 className="text-primary-200 font-semibold text-center tablet:text-start text-2xl tablet:text-4xl laptop:text-5xl">
                 TOKENOMICS
               </h2>
               <h3 className="text-2xl tablet:text-4xl laptop:text-5xl font-semibold">
@@ -493,7 +493,7 @@ export default function Home() {
 
         <div className="py-20 black-background px-6 laptop:px-0">
           <div className="flex flex-col items-center max-w-6xl mx-auto gap-y-10">
-            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl">
+            <h2 className="font-semibold text-primary-200 text-center text-2xl tablet:text-4xl laptop:text-5xl">
               THE POKERFACE PROJECT
             </h2>
             <p className="text-base tablet:text-lg laptop:text-xl text-center font-[200] max-w-3xl">
@@ -526,7 +526,7 @@ export default function Home() {
 
         <div className="black-background py-20 px-8 laptop:px-0">
           <div className="max-w-6xl mx-auto flex flex-col gap-y-10 items-center">
-            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl">
+            <h2 className="font-semibold text-primary-200 text-2xl tablet:text-4xl laptop:text-5xl">
               CASINO
             </h2>
             <div className="space-y-8 w-full">
