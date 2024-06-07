@@ -27,7 +27,7 @@ const Footer = () => {
             For more information please follow our social medias below.
           </p>
           <div />
-          <div className="flex items-center gap-x-4 justify-evenly tablet:justify-start">
+          <div className="flex w-full items-center gap-x-4 justify-evenly tablet:justify-start">
             {Array.from({ length: 5 }).map((_, index) => (
               <img
                 key={index}
