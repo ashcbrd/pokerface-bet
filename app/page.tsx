@@ -94,9 +94,10 @@ export default function Home() {
         <Navbar />
 
         {/* HERO SECTION */}
-        <div className="flex flex-col gap-y-10 max-w-6xl mx-auto py-20 px-8 laptop:px-0">
+        <div className="flex flex-col gap-y-10 max-w-6xl mx-auto py-20 px-8 laptop:px-0 relative">
+          <CasinoBackground />
           <Logo />
-          <p className="font-[200] tracking-wide text-center text-base tablet:text-lg">
+          <p className="font-[200] tracking-wide text-center text-base tablet:text-lg z-10">
             Introducing the $FACE ecosystem that integrates eGaming, casino
             elements, and cryptocurrency, this project promises to create a
             diverse and inclusive ecosystem that caters to a wide range of
@@ -108,7 +109,7 @@ export default function Home() {
           </p>
           <video
             controls
-            className="w-full tablet:w-[400px] mx-auto laptop:w-full"
+            className="w-full tablet:w-[400px] mx-auto laptop:w-full z-10"
           >
             <source src="/Pokerface-Video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -116,30 +117,35 @@ export default function Home() {
 
           <Link
             href="https://whitepaper.pokerface.bet/poker-face-white-paper"
-            className="mx-auto"
+            className="mx-auto z-10"
           >
-            <Button variant="secondary" className="!rounded px-8 py-3">
+            <Button
+              variant="secondary"
+              className="!rounded px-4 tablet:px-8 py-3 text-xs tablet:text-base"
+            >
               WHITE PAPER
             </Button>
           </Link>
-          <div className="w-max space-y-1 mx-auto laptop:mx-0">
+          <div className="w-max space-y-1 mx-auto laptop:mx-0 z-10">
             <p>Audited & KYC | 100% Secure & Verified</p>
             <img
               src="/solidproof.png"
-              className="w-[160px] object-contain ml-auto mr-10"
+              className="w-[160px] object-contain mx-auto tablet:mx-0 tablet:ml-auto tablet:mr-10"
               alt=""
             />
           </div>
         </div>
 
-        <div className="black-background py-20">
-          <div className="bg-dark-100 border-2 border-primary-200 rounded-lg w-max px-10 laptop:px-0 laptop:w-full max-w-[700px] mx-auto flex items-center justify-center py-10">
+        <div className="black-background py-20 px-6 tablet:px-0">
+          <div className="bg-dark-100 border-2 border-primary-200 rounded-lg w-full tablet:w-max px-10 laptop:px-0 laptop:w-full max-w-[700px] mx-auto flex items-center justify-center py-10">
             <Card className="flex flex-col gap-y-2 items-center">
               <p>Stages: 1 / 8</p>
-              <p className="font-semibold">BUY IN BEFORE PRICE INCREASES!</p>
+              <p className="font-semibold text-center">
+                BUY IN BEFORE PRICE INCREASES!
+              </p>
 
               {/* Countdown Timer */}
-              <div className="flex gap-x-2 mt-2">
+              <div className="grid grid-cols-2 tablet:grid-cols-4 gap-2 mt-2">
                 {countdownItems.map((time, index) => (
                   <CountdownItem
                     key={index}
@@ -212,7 +218,7 @@ export default function Home() {
               <Button variant="primary" className="my-2 py-3">
                 Connect Wallet
               </Button>
-              <p className="text-primary-100 font-semibold text-sm">
+              <p className="text-primary-100 font-semibold text-sm text-center">
                 Refer & Earn: Get up to 15% Bonus!
               </p>
             </Card>
@@ -221,16 +227,19 @@ export default function Home() {
 
         <div className="black-background py-20 flex flex-col gap-y-6 items-center  px-8 laptop:px-0">
           <img src="/casino-screenshot.jpeg" className="mx-auto max-w-8xl" />
-          <p className="text-2xl laptop:text-3xl font-[500]">
+          <p className="text-xl tablet:text-2xl laptop:text-3xl font-[500]">
             Visit Pokerface Casino
           </p>
-          <Button variant="primary" className="py-3 px-10">
+          <Button
+            variant="primary"
+            className="py-3 px-10 font-semibold text-sm tablet:text-base"
+          >
             CLICK HERE
           </Button>
         </div>
 
         <div className="flex flex-col items-center pb-20 gap-y-6 black-background">
-          <h2 className="text-primary-200 text-4xl laptop:text-5xl font-bold">
+          <h2 className="text-primary-200 text-2xl tablet:text-4xl laptop:text-5xl font-bold">
             TOKEN SALE STAGE
           </h2>
           <Swiper
@@ -251,14 +260,14 @@ export default function Home() {
             }}
             loop={true}
             modules={[Autoplay, Pagination, Navigation]}
-            className="w-full !px-6"
+            className="w-full !px-6 !hidden tablet:!block"
             breakpoints={{
               640: {
                 slidesPerView: 1,
                 spaceBetween: 0,
               },
               768: {
-                slidesPerView: 2,
+                slidesPerView: 1,
                 spaceBetween: 0,
               },
               1024: {
@@ -266,6 +275,32 @@ export default function Home() {
                 spaceBetween: 0,
               },
             }}
+          >
+            {presaleTokens.map((item, index) => (
+              <SwiperSlide key={index}>
+                <TokenSaleCards key={index} {...item} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <Swiper
+            effect={"cards"}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={1}
+            spaceBetween={10}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 0,
+              modifier: 2,
+            }}
+            navigation={{
+              prevEl: ".custom-prev-button",
+              nextEl: ".custom-next-button",
+            }}
+            loop={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="w-full !px-6 block tablet:!hidden"
           >
             {presaleTokens.map((item, index) => (
               <SwiperSlide key={index}>
@@ -329,7 +364,7 @@ export default function Home() {
               alt="tokens"
               className="w-40 absolute top-0 left-10 hidden laptop:block"
             />
-            <h2 className="text-primary-200 text-4xl laptop:text-5xl font-semibold leading-snug">
+            <h2 className="text-primary-200 text-2xl text-center tablet:text-start tablet:text-4xl laptop:text-5xl font-semibold leading-snug">
               UNIQUE <br className="hidden laptop:block" />
               FEATURES
             </h2>
@@ -348,7 +383,7 @@ export default function Home() {
                     isFlipped={isFlipped[index]}
                     flipDirection="vertical"
                   >
-                    <Card className="border-none tablet:min-w-[340px] min-w-full tablet:max-w-[340px] min-h-[260px] p-10 laptop:px-14 flex flex-col items-center gap-y-6 justify-center">
+                    <Card className="m-auto border-none tablet:min-w-[340px] min-w-full max-w-[140px] tablet:max-w-[340px] min-h-[260px] p-10 laptop:px-14 flex flex-col items-center gap-y-6 justify-center">
                       <img
                         src={feature.icon}
                         alt={feature.frontLabel}
@@ -358,7 +393,7 @@ export default function Home() {
                         {feature.frontLabel}
                       </p>
                     </Card>
-                    <Card className="border-none max-w-[340px] min-h-[260px] p-10 flex items-center justify-center">
+                    <Card className="border-none max-w-[200px] tablet:max-w-[340px] min-h-[260px] p-10 flex items-center justify-center">
                       <p className="font-[200] text-xl text-center tracking-wide">
                         {feature.backLabel}
                       </p>
@@ -391,8 +426,8 @@ export default function Home() {
               <div className="space-y-10 py-20 z-10">
                 {howItWorks.map((item, index) => (
                   <div key={index} className="flex gap-x-6">
-                    <div className="h-10 w-10 rounded-full bg-primary-200 border-4 border-zinc-500 mt-2" />
-                    <div className="z-10 w-[600px] border-l-4 border-primary-200 rounded relative after:content-[''] after:absolute after:top-4 after:-left-2 after:h-4 after:w-4 after:bg-white after:rotate-45 after:border-l-4 after:border-b-4 after:border-primary-200">
+                    <div className="min-h-10 h-10 min-w-10 rounded-full bg-primary-200 border-4 border-zinc-500 mt-2" />
+                    <div className="z-10 tablet:w-[600px] border-l-4 border-primary-200 rounded relative after:content-[''] after:absolute after:top-4 after:-left-2 after:h-4 after:w-4 after:bg-white after:rotate-45 after:border-l-4 after:border-b-4 after:border-primary-200">
                       <div className="w-full h-full bg-white text-black py-6 px-4 z-10 relative rounded-r">
                         <h3 className="text-base tablet:text-xl font-semibold">
                           {item.title}
@@ -515,16 +550,16 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="black-background py-20">
+        <div className="black-background py-20 overflow-x-hidden px-10 tablet:px-0">
           <div className="max-w-6xl mx-auto flex flex-col gap-y-10 items-center">
-            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl">
+            <h2 className="font-semibold text-primary-200 text-2xl text-center tablet:text-4xl laptop:text-5xl">
               ONLINE LOTTO GAME
             </h2>
             <div className="flex flex-wrap justify-center gap-10 relative">
               {onlineLottoGame.map((item, index) => (
                 <div
                   key={index}
-                  className="relative border rounded-3xl p-6 w-[500px] h-[240px] space-y-4"
+                  className="relative border rounded-3xl p-6  tablet:w-[500px] h-[240px] space-y-4"
                 >
                   <img
                     src={item.ballIconImg}
@@ -534,7 +569,7 @@ export default function Home() {
                   <h3 className="font-semibold text-primary-200 text-xl laptop:text-2xl">
                     {item.title}
                   </h3>
-                  <p className="font-[200] laptop:text-lg">
+                  <p className="font-[200] text-sm laptop:text-lg">
                     {item.description}
                   </p>
                 </div>
@@ -550,14 +585,14 @@ export default function Home() {
 
         <div className="black-background  pt-40 pb-20">
           <div className="max-w-6xl w-[80%] laptop:w-full mx-auto flex flex-col items-center gap-y-6">
-            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl">
+            <h2 className="font-semibold text-primary-200 text-center text-2xl tablet:text-4xl laptop:text-5xl">
               PEER TO PEER GAMING
             </h2>
-            <p className="font-[200] text-center text-lg laptop:text-xl max-w-3xl">
+            <p className="font-[200] text-center text-sm tablet:text-lg laptop:text-xl max-w-3xl">
               Engage in a thrilling peer-to-peer games with real time betting
               where players can challenge each other and win big!
             </p>
-            <div className="flex w-full justify-evenly mt-8">
+            <div className="flex flex-wrap w-full justify-center gap-6 tablet:justify-evenly mt-8">
               {peerToPeerGaming.map((item, index) => (
                 <img
                   className="w-16 tablet:w-20 laptop:w-32"
@@ -575,12 +610,12 @@ export default function Home() {
           <div className="relative max-w-6xl mx-auto flex flex-col gap-y-10 items-center">
             <img
               src="/img-10.png"
-              className="w-32 laptop:w-60 absolute -top-28 right-20"
+              className="w-32 laptop:w-60 absolute -top-28 right-20 hidden tablet:block"
             />
-            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl">
+            <h2 className="font-semibold text-primary-200 text-center text-2xl tablet:text-4xl laptop:text-5xl">
               ADVANTAGES
             </h2>
-            <div className="hidden laptop:flex w-full justify-center mt-20">
+            <div className="hidden laptop:flex w-full justify-center tablet:mt-20">
               {advantages.map((advantage, index) => (
                 <div
                   key={index}
@@ -593,7 +628,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <div className="laptop:hidden flex w-full justify-center mt-20 px-4">
+            <div className="laptop:hidden flex w-full justify-center tablet:mt-20 px-4">
               <Swiper
                 effect={"cards"}
                 grabCursor={true}
@@ -621,10 +656,10 @@ export default function Home() {
                     >
                       <div className="w-3 h-3 rounded-full bg-white absolute -top-2 left-4" />
                       <img src={advantage.icon} className="w-20" />
-                      <h3 className="text-2xl font-semibold">
+                      <h3 className="text-lg tablet:text-2xl font-semibold">
                         {advantage.title}
                       </h3>
-                      <p className="text-xl font-[200]">
+                      <p className="text-sm tablet:text-xl font-[200]">
                         {advantage.description}
                       </p>
                     </div>
@@ -639,14 +674,13 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="black-background py-20 h-full">
+        <div className="black-background py-20 h-full px-10 tablet:px-0">
           <div className="max-w-6xl mx-auto flex flex-col laptop:flex-row gap-y-10 h-max items-center gap-x-10 justify-evenly">
-            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl leading-snug">
-              STAKING
-              <br className="hidden laptop:block" />
+            <h2 className="font-semibold text-primary-200 text-2xl tablet:text-4xl laptop:text-5xl leading-snug">
+              STAKING <br className="hidden laptop:block" />
               REWARDS
             </h2>
-            <div className="flex gap-x-10">
+            <div className="tablet:flex gap-x-1 hidden">
               <div className="flex flex-col items-center gap-y-6 h-[340px]">
                 <img src="/staking.svg" className="w-20" />
                 <div className="h-32 border w-0 border-dashed" />
@@ -673,23 +707,50 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <div className="flex tablet:hidden">
+              <div className="flex flex-col gap-y-10 items-center justify-between h-[340px]">
+                <div className="flex flex-col items-center">
+                  <img src="/staking.svg" className="w-20" />
+                  <h2 className="text-xl font-semibold text-primary-200">
+                    Earn passive income
+                  </h2>
+                  <p className="text-sm text-center font-[200] w-full mt-2">
+                    When you stake your $FACE you earn USDT rewards profits from
+                    the Casino.
+                  </p>
+                </div>
+                <div className="min-h-20 border w-0 border-dashed" />
+                <div className="flex flex-col items-center">
+                  <img src="/staking-2.svg" className="w-20" />
+                  <h2 className="text-xl font-semibold text-primary-200">
+                    Access rewards instantly
+                  </h2>
+                  <p className="text-sm text-center font-[200] w-full mt-2">
+                    You will immediately unlock rewards from staking that you
+                    can use in Pokerface, or save them for later!
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="black-background py-20 px-4 laptop:px-0">
+        <div className="black-background py-20 px-4 laptop:px-0 pt-40 tablet:pt-0">
           <div className="max-w-6xl mx-auto flex-col-reverse laptop:flex-col gap-y-4 flex items-center justify-evenly gap-x-10">
             <img src="/POKERFACE-graph.png" alt="graph" className="w-[500px]" />
             <div className="flex flex-col items-center laptop:items-start px-6 laptop:px-0">
-              <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl leading-snug">
+              <h2 className="font-semibold text-primary-200 text-center tablet:text-start text-2xl tablet:text-4xl laptop:text-5xl leading-snug">
                 MARKET <br className="hidden laptop:block" />
                 OPPORTUNITY
               </h2>
-              <p className="font-[200] text-lg laptop:text-xl laptop:w-[500px] mt-4 text-center laptop:text-start">
+              <p className="font-[200] text-sm tablet:text-lg laptop:text-xl laptop:w-[500px] mt-4 text-center laptop:text-start">
                 The global online gambling market is experiencing exponential
                 growth, with projections reaching $127.3 billion by 2027
               </p>
-              <p className="font-semibold text-[140px] mt-10 -mb-10">11.5%</p>
-              <p className="font-semibold text-2xl">
+              <p className="font-semibold text-[100px] tablet:text-[140px] mt-10 -mb-10">
+                11.5%
+              </p>
+              <p className="font-semibold text-xl tablet:text-2xl mt-4 tablet:mt-0 text-center tablet:text-start">
                 Compound annual growth rate (CAGR)
               </p>
             </div>
@@ -698,17 +759,17 @@ export default function Home() {
 
         <div className="black-background py-20 px-10 laptop:px-0">
           <div className="max-w-6xl mx-auto flex flex-col gap-y-10 items-center">
-            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl leading-snug text-center">
-              HOW WE COMPARE TO THE <br />
+            <h2 className="font-semibold text-primary-200 text-2xl tablet:text-4xl laptop:text-5xl leading-snug text-center">
+              HOW WE COMPARE TO THE <br className="hidden tablet:block" />
               COMPETITION
             </h2>
             <img src="/POKERFACE-4.jpg" />
           </div>
         </div>
 
-        <div className="black-background py-20">
+        <div className="black-background py-20 ">
           <div className="max-w-6xl mx-auto flex flex-col gap-y-10 items-center relative">
-            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl">
+            <h2 className="font-semibold text-primary-200 text-2xl tablet:text-4xl laptop:text-5xl">
               ROADMAP
             </h2>
             <Swiper
@@ -729,7 +790,7 @@ export default function Home() {
               }}
               loop={true}
               modules={[Autoplay, Pagination, Navigation]}
-              className="w-full !px-6"
+              className="w-full !px-6 !hidden tablet:block"
               breakpoints={{
                 640: {
                   slidesPerView: 1,
@@ -761,16 +822,52 @@ export default function Home() {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className="absolute flex w-full left-0 right-0 items-center m-auto top-0 bottom-0 justify-between z-[999] mt-20">
+            <div className="absolute hidden tablet:flex w-full left-0 right-0 items-center m-auto top-0 bottom-0 justify-between z-[999] mt-20">
               <CustomNavigation onClick={() => {}} direction="prev" />
               <CustomNavigation onClick={() => {}} direction="next" />
             </div>
+            <Swiper
+              effect={"cards"}
+              grabCursor={true}
+              centeredSlides={true}
+              slidesPerView={1}
+              spaceBetween={10}
+              coverflowEffect={{
+                rotate: 0,
+                stretch: 0,
+                depth: 0,
+                modifier: 2,
+              }}
+              navigation={{
+                prevEl: ".custom-prev-button",
+                nextEl: ".custom-next-button",
+              }}
+              loop={true}
+              modules={[Autoplay, Pagination, Navigation]}
+              className="w-full block !tablet:hidden"
+            >
+              {roadmap.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <p className="font-semibold text-2xl px-6 py-2 rounded-full bg-primary-100 w-max absolute mx-auto right-0 left-0 z-[99]">
+                    Phase {index + 1}
+                  </p>
+                  <div className="mt-6 border-2 border-primary-100 rounded-3xl p-6 min-h-[360px] w-[280px] mx-auto relative flex flex-col justify-center">
+                    {item.phase && <p>{item.phase}</p>}
+                    <div className="space-y-1 mt-6">
+                      {item.items.map((rItem, index) => (
+                        <p key={index}>• {rItem}</p>
+                      ))}
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
 
         <div className="black-background py-20 px-4 laptop:px-0">
           <div className="max-w-6xl mx-auto flex flex-col items-center gap-y-10">
-            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl">
+            <h2 className="font-semibold text-primary-200 text-2xl tablet:text-4xl text-center laptop:text-5xl">
               INVESTMENT OPPORTUNITY
             </h2>
             <div className="flex flex-col tablet:flex-row gap-y-8 items-center justify-between gap-x-6">
@@ -793,8 +890,9 @@ export default function Home() {
 
         <div className="black-background py-20 px-4 laptop:px-0">
           <div className="max-w-6xl mx-auto flex flex-col items-center gap-y-10">
-            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl text-center leading-snug">
-              $FACE IS SET TO LAUNCH ON <br /> MULTIPLE EXCHANGES
+            <h2 className="font-semibold text-primary-200 text-2xl tablet:text-4xl laptop:text-5xl text-center leading-snug">
+              $FACE IS SET TO LAUNCH ON <br className="hidden tablet:block" />{" "}
+              MULTIPLE EXCHANGES
             </h2>
             <div className="flex flex-col tablet:flex-row gap-y-8 items-center justify-between gap-x-6 w-full">
               {Array.from({ length: 3 }).map((_, index) => (
@@ -814,7 +912,7 @@ export default function Home() {
 
         <div className="black-background py-20 px-4 laptop:px-0">
           <div className="max-w-6xl mx-auto flex flex-col items-center gap-y-20">
-            <h2 className="font-semibold text-primary-200 text-4xl laptop:text-5xl text-center">
+            <h2 className="font-semibold text-primary-200 text-2xl tablet:text-4xl laptop:text-5xl text-center">
               POWERED BY
             </h2>
             <div className="grid grid-cols-1 tablet:grid-cols-4 gap-20 w-full">
@@ -837,7 +935,7 @@ export default function Home() {
 
         <Footer />
       </div>
-      <CasinoBackground />
+      <CasinoBackground isGlobal />
     </main>
   );
 }
