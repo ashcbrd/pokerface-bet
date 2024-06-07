@@ -408,7 +408,7 @@ export default function Home() {
         <div className="black-background py-20 px-8 laptop:px-0">
           <div className="max-w-6xl mx-auto flex flex-col gap-y-10 laptop:flex-row items-center justify-between gap-x-10">
             <div className="flex flex-col items-center gap-y-6">
-              <h2 className="text-primary-200 font-semibold text-4xl laptop:text-5xl">
+              <h2 className="text-primary-200 font-semibold text-center text-2xl tablet:text-4xl laptop:text-5xl">
                 HOW IT WORKS
               </h2>
               <img
