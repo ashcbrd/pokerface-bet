@@ -330,7 +330,7 @@ export default function Home() {
         </div>
 
         <div className="black-background py-20 relative after:content-[''] after:bg-gradient-to-t after:from-primary-200/60 after:via-transparent after:to-transparent after:h-full after:w-full after:absolute after:top-0 after:left-0 px-8 laptop:px-0">
-          <div className="z-10 relative max-w-6xl gap-y-8 mx-auto flex flex-col-reverse laptop:flex items-center justify-between gap-x-6">
+          <div className="z-10 relative max-w-6xl gap-y-8 mx-auto flex flex-col-reverse laptop:flex-row items-center justify-between gap-x-6">
             <img src="/img-6.png" className="w-full laptop:w-[560px]" />
             <div className="space-y-10">
               <div className="flex items-start gap-x-2 h-max">
@@ -370,7 +370,7 @@ export default function Home() {
             </h2>
             <div
               onMouseOut={() => setIsFlipped([false])}
-              className="grid grid-cols-1 tablet:grid-cols-2 gap-4 w-full"
+              className="grid grid-cols-1 tablet:grid-cols-2 gap-4 w-full laptop:w-max"
             >
               {uniqueFeatures.map((feature, index) => (
                 <div
@@ -393,7 +393,7 @@ export default function Home() {
                         {feature.frontLabel}
                       </p>
                     </Card>
-                    <Card className="border-none max-w-[200px] tablet:max-w-[340px] min-h-[260px] p-10 flex items-center justify-center">
+                    <Card className="m-auto border-none max-w-[140px] tablet:max-w-[340px] min-h-[260px] p-10 flex items-center justify-center">
                       <p className="font-[200] text-xl text-center tracking-wide">
                         {feature.backLabel}
                       </p>
@@ -736,7 +736,7 @@ export default function Home() {
         </div>
 
         <div className="black-background py-20 px-4 laptop:px-0 pt-40 tablet:pt-0">
-          <div className="max-w-6xl mx-auto flex-col-reverse laptop:flex-col gap-y-4 flex items-center justify-evenly gap-x-10">
+          <div className="max-w-6xl mx-auto flex-col-reverse laptop:flex-row gap-y-4 flex items-center justify-evenly gap-x-10">
             <img src="/POKERFACE-graph.png" alt="graph" className="w-[500px]" />
             <div className="flex flex-col items-center laptop:items-start px-6 laptop:px-0">
               <h2 className="font-semibold text-primary-200 text-center tablet:text-start text-2xl tablet:text-4xl laptop:text-5xl leading-snug">
@@ -777,60 +777,6 @@ export default function Home() {
               grabCursor={true}
               centeredSlides={true}
               slidesPerView={3}
-              spaceBetween={10}
-              coverflowEffect={{
-                rotate: 0,
-                stretch: 0,
-                depth: 0,
-                modifier: 2,
-              }}
-              navigation={{
-                prevEl: ".custom-prev-button",
-                nextEl: ".custom-next-button",
-              }}
-              loop={true}
-              modules={[Autoplay, Pagination, Navigation]}
-              className="w-full !px-6 !hidden tablet:block"
-              breakpoints={{
-                640: {
-                  slidesPerView: 1,
-                  spaceBetween: 0,
-                },
-                768: {
-                  slidesPerView: 2,
-                  spaceBetween: 0,
-                },
-                1024: {
-                  slidesPerView: 3,
-                  spaceBetween: 0,
-                },
-              }}
-            >
-              {roadmap.map((item, index) => (
-                <SwiperSlide key={index}>
-                  <p className="font-semibold text-2xl px-6 py-2 rounded-full bg-primary-100 w-max absolute mx-auto right-0 left-0 z-[99]">
-                    Phase {index + 1}
-                  </p>
-                  <div className="mt-6 border-2 border-primary-100 rounded-3xl p-6 min-h-[400px] w-[360px] mx-auto relative flex flex-col justify-center">
-                    {item.phase && <p>{item.phase}</p>}
-                    <div className="space-y-1 mt-6">
-                      {item.items.map((rItem, index) => (
-                        <p key={index}>• {rItem}</p>
-                      ))}
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            <div className="absolute hidden tablet:flex w-full left-0 right-0 items-center m-auto top-0 bottom-0 justify-between z-[999] mt-20">
-              <CustomNavigation onClick={() => {}} direction="prev" />
-              <CustomNavigation onClick={() => {}} direction="next" />
-            </div>
-            <Swiper
-              effect={"cards"}
-              grabCursor={true}
-              centeredSlides={true}
-              slidesPerView={1}
               spaceBetween={10}
               coverflowEffect={{
                 rotate: 0,
