@@ -89,55 +89,56 @@ export default function Home() {
 
   return (
     <main className="relative">
-      <div className="z-10 relative">
+      <div className="z-10 relative max-w-5xl mx-auto">
         <BackToTopButton />
         <Navbar />
 
         {/* HERO SECTION */}
-        <div className="flex flex-col gap-y-10 max-w-6xl mx-auto py-20 px-8 laptop:px-0 relative">
+        <div className="flex flex-col tablet:flex-row gap-x-10 items-center">
           <CasinoBackground />
-          <Logo />
-          <p className="font-[200] tracking-wide text-center text-base tablet:text-lg z-10">
-            Introducing the $FACE ecosystem that integrates eGaming, casino
-            elements, and cryptocurrency, this project promises to create a
-            diverse and inclusive ecosystem that caters to a wide range of
-            wagering activities and preferences. Emphasizing accessibility,
-            security, and a community-driven approach, the $FACE Token is
-            positioned to redefine engagement with online wagering. It&apos;s an
-            invitation to be part of a transformative journey in the world of
-            online betting
-          </p>
-          <video
-            controls
-            className="w-full tablet:w-[400px] mx-auto laptop:w-full z-10"
-          >
-            <source src="/Pokerface-Video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-
-          <Link
-            href="https://whitepaper.pokerface.bet/poker-face-white-paper"
-            className="mx-auto z-10"
-          >
-            <Button
-              variant="secondary"
-              className="!rounded px-4 tablet:px-8 py-3 text-xs tablet:text-base"
+          <div className="flex flex-col gap-y-10 max-w-6xl mx-auto py-20 px-8 laptop:px-0 relative">
+            <Logo />
+            <p className="font-[200] tracking-wide text-center text-base tablet:text-lg z-10">
+              Introducing the $FACE ecosystem that integrates eGaming, casino
+              elements, and cryptocurrency, this project promises to create a
+              diverse and inclusive ecosystem that caters to a wide range of
+              wagering activities and preferences. Emphasizing accessibility,
+              security, and a community-driven approach, the $FACE Token is
+              positioned to redefine engagement with online wagering. It&apos;s
+              an invitation to be part of a transformative journey in the world
+              of online betting
+            </p>
+            <video
+              controls
+              className="w-full tablet:w-[400\px] mx-auto laptop:w-full z-10"
             >
-              WHITE PAPER
-            </Button>
-          </Link>
-          <div className="w-max space-y-1 mx-auto laptop:mx-0 z-10">
-            <p>Audited & KYC | 100% Secure & Verified</p>
-            <img
-              src="/solidproof.png"
-              className="w-[160px] object-contain mx-auto tablet:mx-0 tablet:ml-auto tablet:mr-10"
-              alt=""
-            />
-          </div>
-        </div>
+              <source src="/Pokerface-Video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
 
-        <div className="black-background py-20 px-6 tablet:px-0">
-          <div className="bg-dark-100 border-2 border-primary-200 rounded-lg w-full tablet:w-max px-10 laptop:px-0 laptop:w-full max-w-[700px] mx-auto flex items-center justify-center py-10">
+            <Link
+              href="https://whitepaper.pokerface.bet/poker-face-white-paper"
+              className="mx-auto z-10"
+            >
+              <Button
+                variant="secondary"
+                className="!rounded px-4 tablet:px-8 py-3 text-xs tablet:text-base"
+              >
+                WHITE PAPER
+              </Button>
+            </Link>
+            <div className="w-max space-y-1 mx-auto laptop:mx-0 z-10">
+              <p>Audited & KYC | 100% Secure & Verified</p>
+              <img
+                src="/solidproof.png"
+                className="w-[160px] object-contain mx-auto tablet:mx-0 tablet:ml-auto tablet:mr-10"
+                alt=""
+              />
+            </div>
+          </div>
+
+          {/* BUY TOKEN */}
+          <div className="bg-dark-100 border-2 h-max border-primary-200 rounded-lg w-full tablet:w-max px-10 laptop:px-0 laptop:min-w-[520px] max-w-[700px] mx-auto flex items-center justify-center py-10 z-10">
             <Card className="flex flex-col gap-y-2 items-center">
               <p>Stages: 1 / 8</p>
               <p className="font-semibold text-center">
